@@ -129,7 +129,7 @@ updateItem('123', { name: 'New Name' }, mutationFn)
 
 ## Live Demo
 
-Try it live: [Vercel Demo](https://use-optimistic-list.vercel.app/demo)
+Try it live: [Demo](https://optimistic-update.vercel.app)
 
 Toggle "Simulate Failure" to see automatic rollback in action.
 
