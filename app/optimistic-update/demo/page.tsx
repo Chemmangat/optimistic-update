@@ -145,51 +145,61 @@ export default function DemoPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center overflow-x-hidden">
         <div className="text-gray-400">Loading...</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-8 px-4 sm:px-6 lg:px-8">
-      <nav className="max-w-2xl mx-auto mb-8 flex justify-between items-center">
-        <Link href="/optimistic-update/about" className="text-blue-400 hover:text-blue-300 transition-colors">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-8 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+      <nav className="max-w-2xl mx-auto mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+        <Link href="/optimistic-update/about" className="text-blue-400 hover:text-blue-300 transition-colors text-sm sm:text-base">
           ← About
         </Link>
-        <a 
-          href="https://chemmangathari.in" 
-          className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 text-sm shadow-lg"
-        >
-          Visit Site
-        </a>
+        <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
+          <a 
+            href="https://www.npmjs.com/package/@chemmangat/optimistic-update"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 sm:px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition-all transform hover:scale-105 text-xs sm:text-sm shadow-lg font-medium"
+          >
+            npm Package
+          </a>
+          <a 
+            href="https://chemmangathari.in" 
+            className="px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 text-xs sm:text-sm shadow-lg"
+          >
+            Visit Site
+          </a>
+        </div>
       </nav>
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+      <div className="max-w-2xl mx-auto w-full">
+        <div className="text-center mb-6 sm:mb-8 px-4">
+          <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 leading-tight py-2">
             @chemmangat/optimistic-update
           </h1>
-          <p className="text-gray-400">
+          <p className="text-sm sm:text-base text-gray-400">
             Optimistic UI updates with automatic rollback
           </p>
         </div>
 
         {simulateFailure && (
-          <div className="mb-6 bg-red-900/30 border border-red-500/50 rounded-lg p-4 backdrop-blur-sm">
-            <div className="flex items-center">
-              <svg className="w-5 h-5 text-red-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <div className="mb-4 sm:mb-6 bg-red-900/30 border border-red-500/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
+            <div className="flex items-start sm:items-center">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-400 mr-2 flex-shrink-0 mt-0.5 sm:mt-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
               </svg>
-              <p className="text-red-300 text-sm font-medium">
+              <p className="text-red-300 text-xs sm:text-sm font-medium">
                 Failure mode active — all mutations will fail and rollback
               </p>
             </div>
           </div>
         )}
 
-        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-2xl p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-100">Settings</h2>
+        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-2xl p-4 sm:p-6 mb-4 sm:mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-100">Settings</h2>
             <div className="flex items-center">
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
@@ -199,7 +209,7 @@ export default function DemoPage() {
                   className="sr-only peer"
                 />
                 <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600"></div>
-                <span className="ml-3 text-sm font-medium text-gray-300">
+                <span className="ml-3 text-xs sm:text-sm font-medium text-gray-300">
                   Simulate Failure
                 </span>
               </label>
@@ -207,20 +217,20 @@ export default function DemoPage() {
           </div>
         </div>
 
-        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-2xl p-6">
-          <form onSubmit={handleAddTodo} className="mb-6">
-            <div className="flex gap-2">
+        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-2xl p-4 sm:p-6">
+          <form onSubmit={handleAddTodo} className="mb-4 sm:mb-6">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="text"
                 value={newTodoText}
                 onChange={(e) => setNewTodoText(e.target.value)}
                 placeholder="Add a new todo..."
-                className="flex-1 px-4 py-2 bg-gray-900 border border-gray-600 text-gray-100 placeholder-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-3 sm:px-4 py-2 bg-gray-900 border border-gray-600 text-gray-100 placeholder-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
               />
               <button
                 type="submit"
                 disabled={status === 'pending'}
-                className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg"
+                className="px-4 sm:px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg text-sm sm:text-base font-medium"
               >
                 Add
               </button>
@@ -229,65 +239,69 @@ export default function DemoPage() {
 
           <div className="space-y-2">
             {todos.length === 0 ? (
-              <p className="text-center text-gray-500 py-8">No todos yet. Add one above!</p>
+              <p className="text-center text-gray-500 py-6 sm:py-8 text-sm sm:text-base">No todos yet. Add one above!</p>
             ) : (
               todos.map((todo) => (
                 <div
                   key={todo.id}
-                  className="flex items-center gap-3 p-4 bg-gray-900/50 border border-gray-700 rounded-lg hover:bg-gray-900/70 hover:border-gray-600 transition-all duration-200"
+                  className="flex items-start sm:items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-gray-900/50 border border-gray-700 rounded-lg hover:bg-gray-900/70 hover:border-gray-600 transition-all duration-200"
                 >
                   <input
                     type="checkbox"
                     checked={todo.completed}
                     onChange={() => handleToggleTodo(todo)}
-                    className="w-5 h-5 text-blue-500 bg-gray-800 border-gray-600 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 bg-gray-800 border-gray-600 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer flex-shrink-0 mt-0.5 sm:mt-0"
                   />
                   
                   {editingId === todo.id ? (
-                    <div className="flex-1 flex gap-2">
+                    <div className="flex-1 flex flex-col sm:flex-row gap-2">
                       <input
                         type="text"
                         value={editText}
                         onChange={(e) => setEditText(e.target.value)}
-                        className="flex-1 px-3 py-1 bg-gray-800 border border-gray-600 text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="flex-1 px-2 sm:px-3 py-1 bg-gray-800 border border-gray-600 text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
                         autoFocus
                       />
-                      <button
-                        onClick={() => handleSaveEdit(todo.id)}
-                        className="px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors"
-                      >
-                        Save
-                      </button>
-                      <button
-                        onClick={handleCancelEdit}
-                        className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
-                      >
-                        Cancel
-                      </button>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleSaveEdit(todo.id)}
+                          className="flex-1 sm:flex-none px-3 py-1 bg-green-600 text-white text-xs sm:text-sm rounded hover:bg-green-700 transition-colors"
+                        >
+                          Save
+                        </button>
+                        <button
+                          onClick={handleCancelEdit}
+                          className="flex-1 sm:flex-none px-3 py-1 bg-gray-600 text-white text-xs sm:text-sm rounded hover:bg-gray-700 transition-colors"
+                        >
+                          Cancel
+                        </button>
+                      </div>
                     </div>
                   ) : (
                     <>
                       <span
-                        className={`flex-1 ${
+                        className={`flex-1 text-sm sm:text-base ${
                           todo.completed
                             ? 'line-through text-gray-500'
                             : 'text-gray-200'
-                        } transition-all duration-200`}
+                        } transition-all duration-200 break-words`}
                       >
                         {todo.text}
                       </span>
-                      <button
-                        onClick={() => handleStartEdit(todo)}
-                        className="px-3 py-1 text-sm text-blue-400 hover:text-blue-300 hover:bg-blue-900/30 rounded transition-colors"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleRemoveTodo(todo.id)}
-                        className="px-3 py-1 text-sm text-red-400 hover:text-red-300 hover:bg-red-900/30 rounded transition-colors"
-                      >
-                        Delete
-                      </button>
+                      <div className="flex gap-1 sm:gap-2 flex-shrink-0">
+                        <button
+                          onClick={() => handleStartEdit(todo)}
+                          className="px-2 sm:px-3 py-1 text-xs sm:text-sm text-blue-400 hover:text-blue-300 hover:bg-blue-900/30 rounded transition-colors"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleRemoveTodo(todo.id)}
+                          className="px-2 sm:px-3 py-1 text-xs sm:text-sm text-red-400 hover:text-red-300 hover:bg-red-900/30 rounded transition-colors"
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </>
                   )}
                 </div>
@@ -296,7 +310,7 @@ export default function DemoPage() {
           </div>
 
           {status === 'pending' && (
-            <div className="mt-4 text-center text-sm text-gray-400">
+            <div className="mt-3 sm:mt-4 text-center text-xs sm:text-sm text-gray-400">
               Processing...
             </div>
           )}
@@ -304,7 +318,7 @@ export default function DemoPage() {
 
         {toast && (
           <div
-            className={`fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-2xl transition-all duration-300 backdrop-blur-lg ${
+            className={`fixed bottom-4 right-4 left-4 sm:left-auto sm:right-4 px-4 sm:px-6 py-3 rounded-lg shadow-2xl transition-all duration-300 backdrop-blur-lg text-sm sm:text-base ${
               toast.type === 'error'
                 ? 'bg-red-600/90 text-white border border-red-500'
                 : 'bg-green-600/90 text-white border border-green-500'
