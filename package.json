@@ -8,9 +8,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:core && next build",
-    "build:core": "npm run build --workspace=packages/core",
+    "build:core": "cd packages/core && npm install && npm run build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npm run build:core"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -24,6 +25,7 @@
     "typescript": "^5.0.0",
     "tailwindcss": "^3.3.0",
     "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0"
+    "autoprefixer": "^10.4.0",
+    "tsup": "^8.0.0"
   }
 }
