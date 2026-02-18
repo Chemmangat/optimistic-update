@@ -2,16 +2,11 @@
   "name": "optimistic-state-monorepo",
   "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build:core && next build",
-    "build:core": "cd packages/core && npm install && npm run build",
+    "build": "cd packages/core && npm install && npm run build && cd ../.. && next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "npm run build:core"
+    "lint": "next lint"
   },
   "dependencies": {
     "react": "^18.2.0",
