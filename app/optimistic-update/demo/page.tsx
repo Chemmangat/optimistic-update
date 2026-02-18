@@ -167,7 +167,7 @@ export default function DemoPage() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
-            use-optimistic-list
+            @chemmangat/optimistic-update
           </h1>
           <p className="text-gray-400">
             Optimistic UI updates with automatic rollback
