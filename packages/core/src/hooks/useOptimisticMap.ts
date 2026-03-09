@@ -24,9 +24,11 @@ export function useOptimisticMap<K, V>(
   
   const pendingMutations = useRef<Map<string, PendingMutation<K, V>>>(new Map())
   const mutationCounter = useRef(0)
+  const baselineMap = useRef<Map<K, V>>(new Map(initialMap))
 
   useEffect(() => {
     setMap(new Map(initialMap))
+    baselineMap.current = new Map(initialMap)
   }, [initialMap])
 
   useEffect(() => {
@@ -73,6 +75,7 @@ export function useOptimisticMap<K, V>(
         pendingMutations.current.delete(mutationId)
         
         if (pendingMutations.current.size === 0) {
+          baselineMap.current = new Map(map)
           setStatus('success')
           onSuccess?.()
         }
@@ -83,16 +86,15 @@ export function useOptimisticMap<K, V>(
 
         const error = err instanceof Error ? err : new Error('Mutation failed')
         
-        const mutation = pendingMutations.current.get(mutationId)
-        if (mutation) {
-          setMap(mutation.previousState)
-          pendingMutations.current.delete(mutationId)
-        }
-
+        pendingMutations.current.delete(mutationId)
+        
         if (pendingMutations.current.size === 0) {
+          setMap(new Map(baselineMap.current))
           setStatus('error')
           setError(error)
           onError?.(error)
+        } else {
+          setMap(new Map(baselineMap.current))
         }
       }
     },
