@@ -154,21 +154,26 @@ export default function DemoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-8 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
       <nav className="max-w-2xl mx-auto mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
-        <Link href="/optimistic-update/about" className="text-blue-400 hover:text-blue-300 transition-colors text-sm sm:text-base">
-          ← About
-        </Link>
+        <div className="flex gap-3">
+          <Link href="/optimistic-update/about" className="text-blue-400 hover:text-blue-300 transition-colors text-sm sm:text-base">
+            ← About
+          </Link>
+          <Link href="/optimistic-update/advanced" className="text-purple-400 hover:text-purple-300 transition-colors text-sm sm:text-base">
+            Advanced Demo →
+          </Link>
+        </div>
         <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
           <a 
             href="https://www.npmjs.com/package/@chemmangat/optimistic-update"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 sm:px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:from-red-600 hover:to-red-700 transition-all transform hover:scale-105 text-xs sm:text-sm shadow-lg font-medium"
+            className="px-3 sm:px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-xs sm:text-sm"
           >
             npm Package
           </a>
           <a 
             href="https://chemmangathari.in" 
-            className="px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 text-xs sm:text-sm shadow-lg"
+            className="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-xs sm:text-sm"
           >
             Visit Site
           </a>
@@ -176,30 +181,30 @@ export default function DemoPage() {
       </nav>
       <div className="max-w-2xl mx-auto w-full">
         <div className="text-center mb-6 sm:mb-8 px-4">
-          <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 leading-tight py-2">
+          <h1 className="text-xl sm:text-2xl font-bold text-white mb-2">
             @chemmangat/optimistic-update
           </h1>
           <p className="text-sm sm:text-base text-gray-400">
-            Optimistic UI updates with automatic rollback
+            React hooks for optimistic UI updates
           </p>
         </div>
 
         {simulateFailure && (
-          <div className="mb-4 sm:mb-6 bg-red-900/30 border border-red-500/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
+          <div className="mb-4 sm:mb-6 bg-red-900/20 border border-red-700/50 rounded-lg p-3 sm:p-4">
             <div className="flex items-start sm:items-center">
               <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-400 mr-2 flex-shrink-0 mt-0.5 sm:mt-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
               </svg>
-              <p className="text-red-300 text-xs sm:text-sm font-medium">
-                Failure mode active — all mutations will fail and rollback
+              <p className="text-red-300 text-xs sm:text-sm">
+                Failure mode enabled - mutations will fail and rollback
               </p>
             </div>
           </div>
         )}
 
-        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-2xl p-4 sm:p-6 mb-4 sm:mb-6">
+        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-xl p-4 sm:p-6 mb-4 sm:mb-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4">
-            <h2 className="text-lg sm:text-xl font-semibold text-gray-100">Settings</h2>
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-100">Demo Settings</h2>
             <div className="flex items-center">
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
@@ -217,7 +222,7 @@ export default function DemoPage() {
           </div>
         </div>
 
-        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-2xl p-4 sm:p-6">
+        <div className="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-lg shadow-xl p-4 sm:p-6">
           <form onSubmit={handleAddTodo} className="mb-4 sm:mb-6">
             <div className="flex flex-col sm:flex-row gap-2">
               <input
@@ -230,7 +235,7 @@ export default function DemoPage() {
               <button
                 type="submit"
                 disabled={status === 'pending'}
-                className="px-4 sm:px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg text-sm sm:text-base font-medium"
+                className="px-4 sm:px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
               >
                 Add
               </button>
@@ -318,10 +323,10 @@ export default function DemoPage() {
 
         {toast && (
           <div
-            className={`fixed bottom-4 right-4 left-4 sm:left-auto sm:right-4 px-4 sm:px-6 py-3 rounded-lg shadow-2xl transition-all duration-300 backdrop-blur-lg text-sm sm:text-base ${
+            className={`fixed bottom-4 right-4 left-4 sm:left-auto sm:right-4 px-4 sm:px-6 py-3 rounded-lg shadow-lg transition-all duration-300 text-sm sm:text-base ${
               toast.type === 'error'
-                ? 'bg-red-600/90 text-white border border-red-500'
-                : 'bg-green-600/90 text-white border border-green-500'
+                ? 'bg-red-600 text-white border border-red-700'
+                : 'bg-green-600 text-white border border-green-700'
             }`}
           >
             {toast.message}

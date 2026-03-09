@@ -1,186 +1,246 @@
-'use client'
-
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
+﻿'use client'
 
 export default function AboutPage() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white overflow-x-hidden">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00em0wIDI0YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00ek0xMiAxNmMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHptMCAyNGMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30 overflow-hidden"></div>
-      
-      <nav className="relative z-10 px-4 sm:px-6 py-4 sm:py-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <Link href="/" className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-center sm:text-left">
+    <div className="min-h-screen bg-white">
+      <nav className="fixed top-0 w-full border-b border-gray-100 bg-white/80 backdrop-blur z-50">
+        <div className="max-w-6xl mx-auto px-8 py-5 flex justify-between items-center">
+          <div className="font-mono text-xs tracking-wide text-gray-900">
             @chemmangat/optimistic-update
-          </Link>
-          <div className="flex flex-wrap gap-3 sm:gap-6 items-center justify-center">
-            <Link href="/optimistic-update/demo" className="hover:text-blue-300 transition-colors text-sm sm:text-base">
-              Demo
-            </Link>
-            <Link href="/optimistic-update/about" className="hover:text-blue-300 transition-colors text-sm sm:text-base">
-              About
-            </Link>
-            <a 
-              href="https://www.npmjs.com/package/@chemmangat/optimistic-update"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 sm:px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 rounded-lg hover:from-red-600 hover:to-red-700 transition-all transform hover:scale-105 text-sm sm:text-base font-medium shadow-lg"
-            >
-              npm Package
-            </a>
-            <a 
-              href="https://chemmangathari.in" 
-              className="px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all transform hover:scale-105 text-sm sm:text-base shadow-lg"
-            >
-              Visit Site
-            </a>
+          </div>
+          <div className="flex gap-8 text-xs">
+            <a href="https://www.npmjs.com/package/@chemmangat/optimistic-update" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">npm</a>
+            <a href="https://github.com/chemmangat/optimistic-update" className="text-gray-500 hover:text-gray-900 transition-colors">github</a>
           </div>
         </div>
       </nav>
 
-      <main className="relative z-10 px-4 sm:px-6 py-12 sm:py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className={`text-center mb-12 sm:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent px-2">
-              Optimistic Update
+      <main className="max-w-6xl mx-auto px-8">
+        <section className="min-h-screen flex flex-col justify-center pt-32 pb-20">
+          <div className="w-full">
+            <h1 className="text-8xl font-extralight tracking-tight text-gray-900 mb-8 leading-none">
+              Instant UI updates
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-              Make your React apps feel instant with extraordinary hooks for optimistic UI updates
+            <p className="text-2xl text-gray-500 font-light mb-4 max-w-3xl leading-relaxed">
+              Make your React apps feel instant with optimistic updates. Update the UI immediately, save in the background, and automatically rollback on errors.
+            </p>
+            <p className="text-lg text-gray-400 mb-12 max-w-2xl">
+              One hook that works like useState. Zero configuration. Zero dependencies.
+            </p>
+            <code className="inline-block px-5 py-3 bg-gray-50 border border-gray-200 rounded text-sm font-mono text-gray-700">
+              npm install @chemmangat/optimistic-update
+            </code>
+          </div>
+        </section>
+
+        <section className="py-32 border-t border-gray-100">
+          <div className="mb-16">
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-4">Example</div>
+            <h2 className="text-4xl font-extralight text-gray-900 mb-4">The simplest use case</h2>
+            <p className="text-lg text-gray-500 max-w-2xl">
+              Works exactly like useState, but with an optional second parameter for your API call. 
+              If the request fails, the UI automatically reverts to its previous state.
             </p>
           </div>
+          
+          <div className="bg-gray-900 rounded-lg p-10">
+            <pre className="text-sm font-mono text-gray-100 leading-loose overflow-x-auto">
+              <code>{`import { useOptimistic } from '@chemmangat/optimistic-update'
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-20 px-4">
-            <div className={`bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/20 transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Lightning Fast</h3>
-              <p className="text-sm sm:text-base text-gray-300">
-                Updates happen instantly in the UI while mutations run in the background. Your users never wait.
+function Counter() {
+  const [count, setCount] = useOptimistic(0)
+  
+  return (
+    <button onClick={() => 
+      setCount(count + 1, () => fetch('/api/increment', { method: 'POST' }))
+    }>
+      {count}
+    </button>
+  )
+}
+
+// That's it. The UI updates instantly. If the fetch fails, it rolls back automatically.`}</code>
+            </pre>
+          </div>
+        </section>
+
+        <section className="py-32 border-t border-gray-100">
+          <div className="mb-16">
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-4">Process</div>
+            <h2 className="text-4xl font-extralight text-gray-900 mb-4">How it works</h2>
+            <p className="text-lg text-gray-500 max-w-2xl">
+              Three simple steps happen automatically every time you update state with a mutation function.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-16">
+            <div>
+              <div className="text-xs text-gray-400 font-mono mb-4">01</div>
+              <h3 className="text-2xl font-light text-gray-900 mb-4">Update instantly</h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                The UI changes immediately when the user interacts. No loading spinners, no waiting. 
+                Your app feels fast because it is fast.
               </p>
             </div>
-
-            <div className={`bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/20 transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Auto Rollback</h3>
-              <p className="text-sm sm:text-base text-gray-300">
-                If a mutation fails, the UI automatically rolls back to the exact previous state. No manual cleanup needed.
+            <div>
+              <div className="text-xs text-gray-400 font-mono mb-4">02</div>
+              <h3 className="text-2xl font-light text-gray-900 mb-4">Save in background</h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                The API request runs in the background while the user continues working. 
+                Non-blocking, non-intrusive, exactly how it should be.
               </p>
             </div>
-
-            <div className={`bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/20 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} sm:col-span-2 lg:col-span-1`}>
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Type Safe</h3>
-              <p className="text-sm sm:text-base text-gray-300">
-                Full TypeScript support with generics. Works with any data shape and catches errors at compile time.
+            <div>
+              <div className="text-xs text-gray-400 font-mono mb-4">03</div>
+              <h3 className="text-2xl font-light text-gray-900 mb-4">Auto rollback</h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                If the request fails, the state automatically reverts to what it was before. 
+                No manual error handling, no cleanup code required.
               </p>
             </div>
           </div>
+        </section>
 
-          <div className={`bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-lg rounded-3xl p-6 sm:p-12 border border-white/20 mb-12 sm:mb-20 mx-4 transition-all duration-1000 delay-400 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">Quick Start</h2>
-            <div className="bg-gray-900/50 rounded-xl p-4 sm:p-6 font-mono text-xs sm:text-sm overflow-x-auto">
-              <div className="text-gray-400 mb-4"># Install the package</div>
-              <div className="text-green-400 mb-6">npm install @chemmangat/optimistic-update</div>
-              
-              <div className="text-gray-400 mb-4"># Use in your React app</div>
-              <pre className="text-blue-300">
-{`import { useOptimisticList } from '@chemmangat/optimistic-update'
+        <section className="py-32 border-t border-gray-100">
+          <div className="mb-16">
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-4">Real examples</div>
+            <h2 className="text-4xl font-extralight text-gray-900 mb-4">Common use cases</h2>
+            <p className="text-lg text-gray-500 max-w-2xl">
+              From like buttons to todo lists, optimistic updates make every interaction feel instant.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-12">
+            <div className="bg-gray-50 rounded-lg p-8">
+              <h3 className="text-lg font-medium text-gray-900 mb-4">Like button</h3>
+              <pre className="text-sm font-mono text-gray-700 leading-relaxed overflow-x-auto">
+                <code>{`const [likes, setLikes] = useOptimistic(42)
 
-const { items, addItem, removeItem, updateItem } = 
-  useOptimisticList(data, {
-    idKey: 'id',
-    onError: (err) => toast.error(err.message),
-  })`}
+<button onClick={() => 
+  setLikes(likes + 1, 
+    () => fetch('/api/like', { method: 'POST' })
+  )
+}>
+  {likes} likes
+</button>`}</code>
+              </pre>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-8">
+              <h3 className="text-lg font-medium text-gray-900 mb-4">Delete todo</h3>
+              <pre className="text-sm font-mono text-gray-700 leading-relaxed overflow-x-auto">
+                <code>{`const [todos, setTodos] = useOptimistic(items)
+
+const remove = (id) => {
+  setTodos(
+    todos.filter(t => t.id !== id),
+    () => fetch(\`/api/todos/\${id}\`, { 
+      method: 'DELETE' 
+    })
+  )
+}`}</code>
               </pre>
             </div>
           </div>
+        </section>
 
-          <div className={`text-center px-4 transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">See It In Action</h2>
-            <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
-              Try the interactive demo to see optimistic updates and automatic rollback in real-time
+        <section className="py-32 border-t border-gray-100">
+          <div className="mb-16">
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-4">Features</div>
+            <h2 className="text-4xl font-extralight text-gray-900 mb-4">Why developers choose this</h2>
+            <p className="text-lg text-gray-500 max-w-2xl">
+              Built for developers who want great UX without the complexity.
             </p>
-            <Link
-              href="/optimistic-update/demo"
-              className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-base sm:text-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all transform hover:scale-105 shadow-2xl"
-            >
-              Launch Demo →
-            </Link>
           </div>
-
-          <div className={`mt-16 sm:mt-32 grid md:grid-cols-2 gap-8 sm:gap-12 px-4 transition-all duration-1000 delay-600 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          
+          <div className="grid grid-cols-2 gap-x-20 gap-y-12">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Why Optimistic State?</h3>
-              <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-300">
-                <p>
-                  Traditional UI updates wait for the server to respond before showing changes. This creates lag and makes your app feel slow.
-                </p>
-                <p>
-                  Optimistic updates show changes immediately, making your app feel instant. But handling rollbacks manually is complex and error-prone.
-                </p>
-                <p>
-                  Optimistic State handles all the complexity for you — instant updates, automatic rollback on failure, and proper handling of concurrent mutations.
-                </p>
+              <h3 className="text-xl font-light text-gray-900 mb-3">Zero setup required</h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                No providers to wrap your app in. No configuration files to manage. 
+                Just import the hook and start using it. Works with any React project.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-light text-gray-900 mb-3">Familiar API</h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                If you know how to use useState, you already know how to use this. 
+                Same signature, same patterns. Zero learning curve.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-light text-gray-900 mb-3">Automatic error handling</h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                Failed requests automatically trigger a rollback to the previous state. 
+                No try-catch blocks, no manual state restoration, no cleanup code.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-light text-gray-900 mb-3">Lightweight bundle</h3>
+              <p className="text-base text-gray-500 leading-relaxed">
+                Only 20KB minified. Zero dependencies except React. 
+                Fast to download, fast to parse, fast to execute.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-32 border-t border-gray-100">
+          <div className="mb-16">
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-4">Comparison</div>
+            <h2 className="text-4xl font-extralight text-gray-900 mb-4">Before and after</h2>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-12">
+            <div>
+              <div className="text-sm text-gray-500 mb-4">Without optimistic updates</div>
+              <div className="bg-gray-50 rounded-lg p-8">
+                <pre className="text-sm font-mono text-gray-600 leading-relaxed">
+                  <code>{`const handleClick = async () => {
+  setLoading(true)
+  try {
+    await fetch('/api/endpoint')
+    await refetch()
+  } catch (err) {
+    setError(err)
+  }
+  setLoading(false)
+}
+
+// Users wait 500ms+ for every action`}</code>
+                </pre>
               </div>
             </div>
-
+            
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Features</h3>
-              <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-3 flex-shrink-0">✓</span>
-                  <span>Instant UI updates with automatic rollback</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-3 flex-shrink-0">✓</span>
-                  <span>Handle multiple simultaneous mutations</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-3 flex-shrink-0">✓</span>
-                  <span>Full TypeScript support with generics</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-3 flex-shrink-0">✓</span>
-                  <span>Zero dependencies (just React)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-3 flex-shrink-0">✓</span>
-                  <span>Automatic cleanup on unmount</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-3 flex-shrink-0">✓</span>
-                  <span>Works with any data structure</span>
-                </li>
-              </ul>
+              <div className="text-sm text-gray-900 mb-4">With optimistic updates</div>
+              <div className="bg-gray-900 rounded-lg p-8">
+                <pre className="text-sm font-mono text-gray-100 leading-relaxed">
+                  <code>{`const [data, setData] = useOptimistic(initial)
+
+const handleClick = () => {
+  setData(
+    newData,
+    () => fetch('/api/endpoint')
+  )
+}
+
+// Instant feedback, automatic rollback`}</code>
+                </pre>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 mt-16 sm:mt-32 py-8 sm:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center text-gray-400">
-          <p className="text-sm sm:text-base">Built with ❤️ for the React community</p>
-          <div className="mt-4 flex flex-wrap justify-center gap-4 sm:gap-6 text-sm sm:text-base">
-            <a href="https://github.com" className="hover:text-white transition-colors">GitHub</a>
-            <a href="https://www.npmjs.com/package/@chemmangat/optimistic-update" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">npm</a>
-            <a href="/optimistic-update/demo" className="hover:text-white transition-colors">Demo</a>
+      <footer className="border-t border-gray-100 mt-20">
+        <div className="max-w-6xl mx-auto px-8 py-16">
+          <div className="flex justify-between items-center text-xs text-gray-400">
+            <div className="font-mono">MIT License</div>
+            <div className="flex gap-10">
+              <a href="https://github.com/chemmangat/optimistic-update" className="hover:text-gray-900 transition-colors">github</a>
+              <a href="https://www.npmjs.com/package/@chemmangat/optimistic-update" className="hover:text-gray-900 transition-colors">npm</a>
+            </div>
           </div>
         </div>
       </footer>

@@ -24,9 +24,11 @@ export function useOptimisticSet<T>(
   
   const pendingMutations = useRef<Map<string, PendingMutation<T>>>(new Map())
   const mutationCounter = useRef(0)
+  const baselineSet = useRef<Set<T>>(new Set(initialSet))
 
   useEffect(() => {
     setSet(new Set(initialSet))
+    baselineSet.current = new Set(initialSet)
   }, [initialSet])
 
   useEffect(() => {
@@ -73,6 +75,7 @@ export function useOptimisticSet<T>(
         pendingMutations.current.delete(mutationId)
         
         if (pendingMutations.current.size === 0) {
+          baselineSet.current = new Set(set)
           setStatus('success')
           onSuccess?.()
         }
@@ -83,16 +86,15 @@ export function useOptimisticSet<T>(
 
         const error = err instanceof Error ? err : new Error('Mutation failed')
         
-        const mutation = pendingMutations.current.get(mutationId)
-        if (mutation) {
-          setSet(mutation.previousState)
-          pendingMutations.current.delete(mutationId)
-        }
-
+        pendingMutations.current.delete(mutationId)
+        
         if (pendingMutations.current.size === 0) {
+          setSet(new Set(baselineSet.current))
           setStatus('error')
           setError(error)
           onError?.(error)
+        } else {
+          setSet(new Set(baselineSet.current))
         }
       }
     },

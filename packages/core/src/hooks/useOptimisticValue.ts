@@ -24,9 +24,11 @@ export function useOptimisticValue<T>(
   
   const pendingMutations = useRef<Map<string, PendingMutation<T>>>(new Map())
   const mutationCounter = useRef(0)
+  const baselineValue = useRef<T>(initialValue)
 
   useEffect(() => {
     setValue(initialValue)
+    baselineValue.current = initialValue
   }, [initialValue])
 
   useEffect(() => {
@@ -73,6 +75,7 @@ export function useOptimisticValue<T>(
         pendingMutations.current.delete(mutationId)
         
         if (pendingMutations.current.size === 0) {
+          baselineValue.current = value
           setStatus('success')
           onSuccess?.()
         }
@@ -83,16 +86,15 @@ export function useOptimisticValue<T>(
 
         const error = err instanceof Error ? err : new Error('Mutation failed')
         
-        const mutation = pendingMutations.current.get(mutationId)
-        if (mutation) {
-          setValue(mutation.previousValue)
-          pendingMutations.current.delete(mutationId)
-        }
-
+        pendingMutations.current.delete(mutationId)
+        
         if (pendingMutations.current.size === 0) {
+          setValue(baselineValue.current)
           setStatus('error')
           setError(error)
           onError?.(error)
+        } else {
+          setValue(baselineValue.current)
         }
       }
     },
